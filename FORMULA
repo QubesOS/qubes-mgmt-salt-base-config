@@ -1,0 +1,46 @@
+# vim: set syntax=yaml ts=2 sw=2 sts=2 et :
+
+package-name:       qubes-mgmt-salt-base-config
+name:               qubes-config-formula
+top_level_dir:      qubes
+formula-files:      README.rst LICENSE qubes config _modules
+pillar-files:       pillar
+test-formula-files: 
+test-pillar-files: 
+formula_root:       /srv/salt
+saltenv:            base
+version:            3.0.0
+release:            1
+os:                 RedHat, Debian, Ubuntu, Suse, FreeBSD
+os_family:          RedHat, Debian, Suse, FreeBSD
+summary:            Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
+description: |
+  Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
+  Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure
+  automation and management system.
+
+  - Sets formula file_roots and updates salt configuration setting in
+    ``/etc/salt/minion.s/f_defaults.conf`` based on pillar data located in 
+    ``/srv/pillar/base/config.sls``.
+
+  - Ensures salt-minion service is dead
+
+state-tops:
+  base:
+    enable:
+      - config
+      - qubes.directories
+      - qubes.user-dirs
+  
+pillar-tops:
+  base:
+    enable:
+      - config
+      - config.modules
+      - qubes
+
+conf:
+  config:
+    formula_dirs:
+      - /srv/formulas
+      - /srv/user_formulas
