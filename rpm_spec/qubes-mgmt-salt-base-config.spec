@@ -50,14 +50,14 @@ qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-qubesctl topd.enable qubes.directories saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl topd.enable qubes.user-dirs saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl topd.enable config saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.directories saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.user-dirs saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
-qubesctl topd.enable config saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
-qubesctl topd.enable config.modules saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
-qubesctl topd.enable qubes saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config.modules saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
 
 # Update Salt Configuration
 qubesctl state.sls config -l quiet --out quiet > /dev/null || true
