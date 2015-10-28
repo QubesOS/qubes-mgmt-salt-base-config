@@ -58,14 +58,16 @@ def readdirs(dirpath, abspath=False):
             continue
 
         # Only allow directories
-        abspath = os.path.join(dirpath, relpath)
-        if not os.path.isdir(abspath):
+        if not os.path.isdir(os.path.join(dirpath, relpath)):
             continue
 
         if isinstance(relpath, six.text_type):
             relpath = relpath.encode(SLS_ENCODING)
 
-        dirs.append(relpath)
+        if abspath:
+            dirs.append(os.path.join(dirpath, relpath))
+        else:
+            dirs.append(relpath)
 
     return dirs
 
