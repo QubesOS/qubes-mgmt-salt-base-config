@@ -27,8 +27,17 @@ import salt.ext.six as six
 # Enable logging
 log = logging.getLogger(__name__)
 
+# Define the module's virtual name
+__virtualname__ = 'config'
 
-def readdirs(dirpath):
+
+def __virtual__():
+    '''
+    '''
+    return __virtualname__
+
+
+def readdirs(dirpath, abspath=False):
     '''
     Returns a list of directories.
 
