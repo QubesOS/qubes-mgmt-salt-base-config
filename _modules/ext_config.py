@@ -46,7 +46,7 @@ def readdirs(dirpath, abspath=False):
     '''
     dirs = []
 
-    if not dirpath or not os.path.exists(dirpath):
+    if not dirpath or not os.path.exists(os.path.realpath(dirpath)):
         return []
 
     if not os.path.isdir(dirpath):
