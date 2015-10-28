@@ -37,7 +37,6 @@ pillar-tops:
     enable:
       - config
       - config.modules
-      - qubes
 
 conf:
   config:

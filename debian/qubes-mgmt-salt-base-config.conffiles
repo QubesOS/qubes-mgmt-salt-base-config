@@ -1,2 +1,1 @@
 /srv/pillar/config/init.sls
-/srv/pillar/qubes/init.sls

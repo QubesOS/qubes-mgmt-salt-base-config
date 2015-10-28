@@ -22,6 +22,8 @@ BuildArch: noarch
 Requires:  salt
 Requires:  salt-minion
 Requires:  qubes-mgmt-salt-config
+Requires:  qubes-mgmt-salt-base-overrides
+Requires:  qubes-mgmt-salt-base-overrides-libs
 Requires:  qubes-mgmt-salt-base-topd
 Requires(post): /usr/bin/salt-call
 
@@ -57,7 +59,6 @@ qubesctl top.enable config saltenv=%{saltenv} -l quiet --out quiet > /dev/null |
 # Enable Pillar States
 qubesctl top.enable config saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
 qubesctl top.enable config.modules saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
-qubesctl top.enable qubes saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
 
 # Update Salt Configuration
 qubesctl state.sls config -l quiet --out quiet > /dev/null || true
@@ -95,9 +96,6 @@ qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 %config(noreplace) /srv/pillar/config/modules.sls
 /srv/pillar/config/modules.top
 
-%attr(750, root, root) %dir /srv/pillar/qubes
-%config(noreplace) /srv/pillar/qubes/init.sls
-/srv/pillar/qubes/init.top
 /srv/pillar/vmtype.jinja
 
 %changelog
