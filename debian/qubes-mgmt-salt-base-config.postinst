@@ -33,7 +33,7 @@ case "${1}" in
         qubesctl top.enable config.modules saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
 
         # Update Salt Configuration
-        qubesctl state.sls config quiet --out quiet > /dev/null || true
+        qubesctl state.sls config -l quiet --out quiet > /dev/null || true
         qubesctl saltutil.sync_all -l quiet --out quiet > /dev/null || true
         ;;
 
