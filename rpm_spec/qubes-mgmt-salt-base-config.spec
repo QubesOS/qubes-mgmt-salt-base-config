@@ -1,19 +1,10 @@
-%{!?version: %define version %(make get-version)}
-%{!?rel: %define rel %(make get-release)}
-%{!?package_name: %define package_name %(make get-package_name)}
-%{!?package_summary: %define package_summary %(make get-summary)}
-%{!?package_description: %define package_description %(make get-description)}
+%{!?version: %define version %(cat version)}
+%{!?rel: %define rel %(cat rel)}
 
-%{!?formula_name: %define formula_name %(make get-formula_name)}
-%{!?state_name: %define state_name %(make get-state_name)}
-%{!?saltenv: %define saltenv %(make get-saltenv)}
-%{!?pillar_dir: %define pillar_dir %(make get-pillar_dir)}
-%{!?formula_dir: %define formula_dir %(make get-formula_dir)}
-
-Name:      %{package_name}
+Name:      qubes-mgmt-salt-base-config
 Version:   %{version}
 Release:   %{rel}%{?dist}
-Summary:   %{package_summary}
+Summary:   Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
 License:   GPL 2.0
 URL:	   http://www.qubes-os.org/
 
@@ -30,7 +21,14 @@ Requires(post): /usr/bin/salt-call
 %define _builddir %(pwd)
 
 %description
-%{package_description}
+Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure
+automation and management system.
+
+- Sets formula file_roots and updates salt configuration setting in
+  ``/etc/salt/minion.s/f_defaults.conf`` based on pillar data located in 
+  ``/srv/pillar/base/config.sls``.
+
+- Ensures salt-minion service is dead
 
 %prep
 # we operate on the current directory, so no need to unpack anything
@@ -52,13 +50,13 @@ qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
 qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-qubesctl top.enable qubes.directories saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable qubes.user-dirs saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
-qubesctl top.enable config saltenv=%{saltenv} -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.directories saltenv=base -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.user-dirs saltenv=base -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=base -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
-qubesctl top.enable config saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
-qubesctl top.enable config.modules saltenv=%{saltenv} pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config.modules saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
 
 # Update Salt Configuration
 qubesctl state.sls config -l quiet --out quiet > /dev/null || true
