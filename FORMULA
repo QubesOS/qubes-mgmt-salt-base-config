@@ -3,11 +3,12 @@
 package-name:       qubes-mgmt-salt-base-config
 name:               qubes-config-formula
 top_level_dir:      qubes
-formula-files:      README.rst LICENSE qubes config _modules
+formula-files:      qubes config _modules
 pillar-files:       pillar
 test-formula-files: 
 test-pillar-files: 
-formula_root:       /srv/salt
+formula_dir:        /srv/salt
+pillar_dir:         /srv/pillar
 saltenv:            base
 version:            3.0.0
 release:            1
