@@ -14,6 +14,6 @@
 # --> qubesctl state.highstate test=True
 
 # === User Defined Salt States ================================================
-user:
-  '*':
-    - locale
+#user:
+#  '*':
+#    - locale
