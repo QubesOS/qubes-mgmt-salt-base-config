@@ -30,8 +30,11 @@ salt-standalone-config:
     - context:
         standalone: True
   
+# Skip in chroot environment since systemd is not enabled
+{%- if grains['virtual_subtype']|lower != 'chroot' %}
   service.dead:
     - enable: False
     - name: {{ salt_settings.minion_service }}
     - require:
       - file: salt-standalone-config
+{% endif -%}
