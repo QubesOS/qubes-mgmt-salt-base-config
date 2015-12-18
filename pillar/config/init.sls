@@ -11,7 +11,9 @@ salt:
   repotype: fedora
   {% endif %}
 
+  {% if vmtype == 'dom0' %}
   yum_provider: yumpkg_api
+  {% endif %}
 
   retcode_passthrough: True
 
