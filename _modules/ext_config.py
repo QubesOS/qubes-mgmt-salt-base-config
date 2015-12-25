@@ -103,6 +103,9 @@ def file_roots(roots=None, formula_dirs=None, envs=True):
 
             for relpath in readdirs(dirpath):
                 abspath = os.path.join(dirpath, relpath)
-                salt.utils.dictupdate.update(roots, {env: [abspath]})
+                try:
+                    salt.utils.dictupdate.update(roots, {env: [abspath]}, merge_lists=True)
+                except TypeError:
+                    salt.utils.dictupdate.update(roots, {env: [abspath]})
 
     return roots
