@@ -1,3 +1,19 @@
+qubes-mgmt-salt-base-config (3.1.1-1) wheezy; urgency=medium
+
+  [ Marek Marczykowski-Górecki ]
+  * Disable setting locale by default
+
+  [ Jason Mehring ]
+  * Makefile:  Added a few formatting line feeds
+  * FORMULA: Use Makefile VARS for formula_dir, etc and re-ordered
+    fields
+  * Skip disabling salt-minion in chroot environment since systemd is
+    not enabled
+  * config: Make sure yum_provider is set to yumpkg_api for dom0 only
+  * module: ext_config - Catch salt.utils.dictupdate.update exception
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Sat, 26 Dec 2015 01:13:35 +0100
+
 qubes-mgmt-salt-base-config (3.1.0-1) wheezy; urgency=medium
 
   [ Jason Mehring ]
