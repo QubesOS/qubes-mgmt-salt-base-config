@@ -2,7 +2,7 @@
 # vim: set syntax=jinja ts=2 sw=2 sts=2 et :
 
 {## Identify if dom0 or VM ##}
-{%- if grains['virtual']|lower == 'qubes' %}
+{%- if grains['id']|lower == 'dom0' %}
   {%- set vmtype = 'dom0' %}
 {%- else %}
   {%- set vmtype = 'vm' %}

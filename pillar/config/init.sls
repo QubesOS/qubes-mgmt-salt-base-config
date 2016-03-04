@@ -53,8 +53,8 @@ salt:
     #   group2: 'G@os:Debian and foo.domain.com'
     # ──────────────────────────────────────────────────────────────────────────
     nodegroups:
-      dom0: 'G@virtual:Qubes'
-      vm: 'P@virtual_subtype:Xen\sPV\sDomU'
+      dom0: 'dom0'
+      vm: '''* and not dom0'''
 
     # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
     #                         FILE DIRECTORY SETTINGS
