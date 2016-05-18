@@ -1,3 +1,10 @@
+qubes-mgmt-salt-base-config (3.2.0-1) wheezy; urgency=medium
+
+  * Do not use grains for targetting
+  * Manage salt configuration only for dom0
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Wed, 18 May 2016 02:54:03 +0200
+
 qubes-mgmt-salt-base-config (3.1.1-1) wheezy; urgency=medium
 
   [ Marek Marczykowski-Górecki ]
