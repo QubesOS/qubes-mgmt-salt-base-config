@@ -45,22 +45,22 @@ make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{
 # NOTE: Use salt-call since qubesctl is not installed yet
 
 # Sync all modules
-salt-call --local saltutil.clear_cache -l quiet --out quiet > /dev/null || true
-salt-call --local saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
+qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
+qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 # Enable States
-salt-call --local top.enable qubes.directories saltenv=base -l quiet --out quiet > /dev/null || true
-salt-call --local top.enable qubes.user-dirs saltenv=base -l quiet --out quiet > /dev/null || true
-salt-call --local top.enable config saltenv=base -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.directories saltenv=base -l quiet --out quiet > /dev/null || true
+qubesctl top.enable qubes.user-dirs saltenv=base -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=base -l quiet --out quiet > /dev/null || true
 
 # Enable Pillar States
-salt-call --local top.enable config saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
-salt-call --local top.enable config.modules saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
+qubesctl top.enable config.modules saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
 
 # Update Salt Configuration
-salt-call --local state.sls config -l quiet --out quiet > /dev/null || true
-salt-call --local saltutil.clear_cache -l quiet --out quiet > /dev/null || true
-salt-call --local saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
+qubesctl state.sls config -l quiet --out quiet > /dev/null || true
+qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
+qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 %files
 %defattr(-,root,root)
