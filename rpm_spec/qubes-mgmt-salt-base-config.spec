@@ -15,7 +15,7 @@ Requires:  qubes-mgmt-salt-config
 Requires:  qubes-mgmt-salt-base-overrides
 Requires:  qubes-mgmt-salt-base-overrides-libs
 Requires:  qubes-mgmt-salt-base-topd
-Requires(post): /usr/bin/salt-call
+Requires(post): /usr/bin/qubesctl
 
 %define _builddir %(pwd)
 
