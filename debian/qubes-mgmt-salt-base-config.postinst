@@ -24,8 +24,8 @@ case "${1}" in
         qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
         # Enable States
-        qubesctl top.enable qubes.directories saltenv=base -l quiet --out quiet > /dev/null || true
-        qubesctl top.enable qubes.user-dirs saltenv=base -l quiet --out quiet > /dev/null || true
+        qubesctl top.enable qubes.directories -l quiet --out quiet > /dev/null || true
+        qubesctl top.enable qubes.user-dirs -l quiet --out quiet > /dev/null || true
 
         # Update Salt Configuration
         qubesctl saltutil.sync_all -l quiet --out quiet > /dev/null || true
