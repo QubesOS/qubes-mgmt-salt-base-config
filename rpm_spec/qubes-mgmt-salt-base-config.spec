@@ -51,31 +51,10 @@ qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 # Enable States
 qubesctl top.enable qubes.directories saltenv=base -l quiet --out quiet > /dev/null || true
 qubesctl top.enable qubes.user-dirs saltenv=base -l quiet --out quiet > /dev/null || true
-qubesctl top.enable config saltenv=base -l quiet --out quiet > /dev/null || true
-
-# Enable Pillar States
-qubesctl top.enable config saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
-qubesctl top.enable config.modules saltenv=base pillar=true -l quiet --out quiet > /dev/null || true
-
-# Update Salt Configuration
-qubesctl state.sls config -l quiet --out quiet > /dev/null || true
-qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
-qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 
 %files
 %defattr(-,root,root)
 %doc LICENSE README.rst
-%attr(750, root, root) %dir /srv/salt/config
-/srv/salt/config/defaults.yaml
-/srv/salt/config/files/minion.d/f_defaults.conf
-/srv/salt/config/init.sls
-/srv/salt/config/init.top
-/srv/salt/config/LICENSE
-/srv/salt/config/map.jinja
-/srv/salt/config/README.rst
-
-%attr(750, root, root) %dir /srv/salt/_modules
-/srv/salt/_modules/ext_config.py*
 
 %attr(750, root, root) %dir /srv/salt/qubes
 /srv/salt/qubes/directories.sls
@@ -87,12 +66,6 @@ qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
 /srv/salt/qubes/README.rst
 /srv/salt/qubes/user-dirs.sls
 /srv/salt/qubes/user-dirs.top
-
-%attr(750, root, root) %dir /srv/pillar/config
-%config(noreplace) /srv/pillar/config/init.sls
-/srv/pillar/config/init.top
-%config(noreplace) /srv/pillar/config/modules.sls
-/srv/pillar/config/modules.top
 
 /srv/pillar/vmtype.jinja
 

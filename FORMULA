@@ -6,7 +6,7 @@ version:            3.2.0
 release:            1
 name:               qubes-config-formula
 top_level_dir:      qubes
-formula-files:      qubes config _modules
+formula-files:      qubes
 pillar-files:       pillar
 formula_dir:        $(MGMT_DEFAULT_STATE_DIR)
 pillar_dir:         $(MGMT_DEFAULT_PILLAR_DIR)
@@ -15,28 +15,13 @@ os_family:          RedHat, Debian, Suse, FreeBSD
 summary:            Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
 description: |
   Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
-  Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure
-  automation and management system.
-
-  - Sets formula file_roots and updates salt configuration setting in
-    ``/etc/salt/minion.s/f_defaults.conf`` based on pillar data located in 
-    ``/srv/pillar/base/config.sls``.
-
-  - Ensures salt-minion service is dead
 
 state-tops:
   base:
     enable:
-      - config
       - qubes.directories
       - qubes.user-dirs
   
-pillar-tops:
-  base:
-    enable:
-      - config
-      - config.modules
-
 conf:
   config:
     formula_dirs:
