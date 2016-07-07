@@ -41,16 +41,6 @@ ln -sf . %{name}-%{version}
 %install
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} SYSCONFDIR=%{_sysconfdir}
 
-%post
-
-# Sync all modules
-qubesctl saltutil.clear_cache -l quiet --out quiet > /dev/null || true
-qubesctl saltutil.sync_all refresh=true -l quiet --out quiet > /dev/null || true
-
-# Enable States
-qubesctl top.enable qubes.directories -l quiet --out quiet > /dev/null || true
-qubesctl top.enable qubes.user-dirs -l quiet --out quiet > /dev/null || true
-
 %files
 %defattr(-,root,root)
 %doc LICENSE README.rst
