@@ -15,19 +15,12 @@ Requires:  qubes-mgmt-salt-config
 Requires:  qubes-mgmt-salt-base-overrides
 Requires:  qubes-mgmt-salt-base-overrides-libs
 Requires:  qubes-mgmt-salt-base-topd
-Requires(post): /usr/bin/qubesctl
 
 %define _builddir %(pwd)
 
 %description
 Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure
 automation and management system.
-
-- Sets formula file_roots and updates salt configuration setting in
-  ``/etc/salt/minion.s/f_defaults.conf`` based on pillar data located in 
-  ``/srv/pillar/base/config.sls``.
-
-- Ensures salt-minion service is dead
 
 %prep
 # we operate on the current directory, so no need to unpack anything
@@ -40,6 +33,13 @@ ln -sf . %{name}-%{version}
 
 %install
 make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{_sbindir} SYSCONFDIR=%{_sysconfdir}
+
+%post
+
+# disable formula which used to be in this package
+rm -f /srv/salt/_tops/base/config.top
+rm -f /srv/pillar/_tops/base/config.top
+rm -f /srv/pillar/_tops/base/config.modules.top
 
 %files
 %defattr(-,root,root)
