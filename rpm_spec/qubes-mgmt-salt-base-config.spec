@@ -40,6 +40,8 @@ make install DESTDIR=%{buildroot} LIBDIR=%{_libdir} BINDIR=%{_bindir} SBINDIR=%{
 rm -f /srv/salt/_tops/base/config.top
 rm -f /srv/pillar/_tops/base/config.top
 rm -f /srv/pillar/_tops/base/config.modules.top
+rm -f /srv/pillar/_tops/dom0/config.top
+rm -f /srv/pillar/_tops/dom0/config.modules.top
 
 %files
 %defattr(-,root,root)
