@@ -1,3 +1,12 @@
+qubes-mgmt-salt-base-config (3.2.2-1) wheezy; urgency=medium
+
+  * Drop automatic enabling formulas and clearing cache
+  * rpm: fix upgrade
+  * rpm: remove obsolete symlinks also from 'dom0' env
+  * debian: there is no longer pillar data
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Mon, 08 Aug 2016 14:28:35 +0200
+
 qubes-mgmt-salt-base-config (3.2.1-1) wheezy; urgency=medium
 
   * Add 'Qubes' os_family
