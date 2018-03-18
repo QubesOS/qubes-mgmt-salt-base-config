@@ -1,7 +1,6 @@
-%{!?version: %define version %(cat version)}
 
 Name:      qubes-mgmt-salt-base-config
-Version:   %{version}
+Version:   @VERSION@
 Release:   1%{?dist}
 Summary:   Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure automation and management system
 License:   GPL 2.0
@@ -16,18 +15,15 @@ Requires:  qubes-mgmt-salt-base-overrides
 Requires:  qubes-mgmt-salt-base-overrides-libs
 Requires:  qubes-mgmt-salt-base-topd
 
-%define _builddir %(pwd)
+
+Source0: %{name}-%{version}.tar.gz
 
 %description
 Qubes+Salt Management base configuration for SaltStack's Salt Infrastructure
 automation and management system.
 
 %prep
-# we operate on the current directory, so no need to unpack anything
-# symlink is to generate useful debuginfo packages
-rm -f %{name}-%{version}
-ln -sf . %{name}-%{version}
-%setup -T -D
+%setup -q
 
 %build
 
