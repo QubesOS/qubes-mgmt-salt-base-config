@@ -57,3 +57,4 @@ rm -f /srv/pillar/_tops/dom0/config.modules.top
 /srv/pillar/vmtype.jinja
 
 %changelog
+@CHANGELOG@
