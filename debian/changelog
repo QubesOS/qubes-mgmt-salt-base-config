@@ -1,3 +1,11 @@
+qubes-mgmt-salt-base-config (4.0.1-1) unstable; urgency=medium
+
+  [ Frédéric Pierret ]
+  * Create .spec.in and Source0
+  * spec.in: add changelog placeholder
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Tue, 09 Oct 2018 02:43:38 +0200
+
 qubes-mgmt-salt-base-config (4.0.0-1) unstable; urgency=medium
 
   * travis: drop debootstrap workaround
