@@ -11,8 +11,10 @@ BuildArch: noarch
 Requires:  salt
 Requires:  salt-minion
 Requires:  qubes-mgmt-salt-config
+%if 0%{?fedora} == 25
 Requires:  qubes-mgmt-salt-base-overrides
 Requires:  qubes-mgmt-salt-base-overrides-libs
+%endif
 Requires:  qubes-mgmt-salt-base-topd
 
 
