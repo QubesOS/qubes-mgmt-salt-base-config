@@ -1,3 +1,14 @@
+qubes-mgmt-salt-base-config (4.1.0-1) unstable; urgency=medium
+
+  [ Frédéric Pierret (fepitre) ]
+  * Use overrides only with salt version older than 2018.3
+
+  [ Marek Marczykowski-Górecki ]
+  * rpm: drop dependency on qubes-mgmt-salt-base-overrides*
+  * travis: update to R4.1
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Sat, 23 Mar 2019 04:12:27 +0100
+
 qubes-mgmt-salt-base-config (4.0.1-1) unstable; urgency=medium
 
   [ Frédéric Pierret ]
