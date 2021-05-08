@@ -8,6 +8,7 @@ URL:	   http://www.qubes-os.org/
 
 Group:     System administration tools
 BuildArch: noarch
+BuildRequires: make
 Requires:  salt
 Requires:  salt-minion
 Requires:  qubes-mgmt-salt-config
