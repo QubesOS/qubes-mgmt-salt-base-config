@@ -1,3 +1,14 @@
+qubes-mgmt-salt-base-config (4.1.1-1) unstable; urgency=medium
+
+  [ Frédéric Pierret (fepitre) ]
+  * travis: switch to bionic
+  * travis: switch to dom0 Fedora 31
+  * Update travis
+  * Add .gitlab-ci.yml
+  * spec: add BR make
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Thu, 13 May 2021 04:43:22 +0200
+
 qubes-mgmt-salt-base-config (4.1.0-1) unstable; urgency=medium
 
   [ Frédéric Pierret (fepitre) ]
