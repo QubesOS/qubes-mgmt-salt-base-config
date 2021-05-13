@@ -1,3 +1,12 @@
+qubes-mgmt-salt-base-config (4.0.2-1) unstable; urgency=medium
+
+  [ Frédéric Pierret (fepitre) ]
+  * travis: switch to bionic
+  * Add .gitlab-ci.yml
+  * spec: add BR make
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Thu, 13 May 2021 04:42:51 +0200
+
 qubes-mgmt-salt-base-config (4.0.1-1) unstable; urgency=medium
 
   [ Frédéric Pierret ]
