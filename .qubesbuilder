@@ -1,0 +1,11 @@
+host:
+  rpm:
+    build:
+      - rpm_spec/qubes-mgmt-salt-base-config.spec
+vm:
+  rpm:
+    build:
+      - rpm_spec/qubes-mgmt-salt-base-config.spec
+  deb:
+    build:
+      - debian
