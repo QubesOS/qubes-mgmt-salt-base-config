@@ -1,3 +1,12 @@
+qubes-mgmt-salt-base-config (4.1.2-1) unstable; urgency=medium
+
+  [ Frédéric Pierret (fepitre) ]
+  * Drop Travis CI
+  * Drop Travis CI
+  * Add Qubes Builder v2 integration
+
+ -- Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>  Mon, 05 Dec 2022 01:03:05 +0100
+
 qubes-mgmt-salt-base-config (4.1.1-1) unstable; urgency=medium
 
   [ Frédéric Pierret (fepitre) ]
