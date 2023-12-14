@@ -48,6 +48,11 @@ directory_srv_user_pillar:
       - group
       - mode
 
+enable_user_salt:
+  file.symlink:
+    - name: /srv/salt/_tops/base/user-dirs.top
+    - target: ../../qubes/user-dirs.top
+
 # User 'formulas' directory and file permissions
 # Note: using custom ID due to possible conflicts
 directory_srv_user_formulas:
